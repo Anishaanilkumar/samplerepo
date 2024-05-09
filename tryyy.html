@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: #808080;">
+    
+
+    <div class="container">
+        <div class="image-box">
+            <img src="image.jpg" alt="Image description" height="100" width="100"onclick="showRelated('delhi')">
+        </div>
+        <div class="text-box">
+            <h2>DELHI</h2>
+            <p>Delhi is love, Delhi is haste, Delhi is serene, Delhi is chaos... It is the yang to its own yin. Delhi is a complete deal! From the bustling lanes of Chandni Chowk to the serene and tranquil abode of Bangla Sahib, Delhi makes a complete circle of life..</p>
+            <a href="#">View Packages</a>
+        </div>
+    </div>
+     <div class="container">
+         <div class="image-box">
+                <img src="manali.jpg" alt="Destination 2" height="100" width="100" 
+                onclick="showRelated('manali')">
+                </div>
+                <div class="text-box">
+                    <h2>MANALI</h2>
+                    <p>Manali has always been a much talked about and visited tourist destination. Our customized Manali tour package gives you the opportunity of visiting some of the popular tourist hotspots.</p>
+                    <a href="#" >View Packages</a>
+                </div>
+      </div>
+      <div class="container">
+        <div class="image-box">
+            <img src="ooty.jpg" alt="Image description" height="100" width="100"onclick="showRelated('ooty')">
+        </div>
+        <div class="text-box">
+            <h2>OOTY</h2>
+            <p>Ooty, or Udhagamandalam, is a charming hill station located in the Nilgiri Hills of Tamil Nadu. It is known for its lush green landscapes, tea gardens, and pleasant weather. Explore the botanical gardens, enjoy a ride on the Nilgiri Mountain Railway, and experience the serene beauty of Ooty.</p>
+            <a href="#">View Packages</a>
+        </div>
+    </div>
+            <div class="destination-details-overlay" id="destinationDetails">
+        <div class="destination-details">
+            <!-- Related pictures will be shown here -->
+        </div>
+        </div>
+   
+    
+   
+    <script>
+        function showRelated(destination) {
+            var destinationDetails = document.getElementById('destinationDetails');
+            // Show overlay
+            destinationDetails.style.display = 'block';
+            
+            // Clear previous content
+            destinationDetails.querySelector('.destination-details').innerHTML = '';
+
+            // Create and append related pictures based on the destination
+            var relatedPictures = [];
+
+            if (destination === 'delhi') {
+                relatedPictures = ['delhi1.jpg', 'delhi2.jpg', 'delhi3.jpg']; // Delhi related pictures
+            } else if (destination === 'manali') {
+                relatedPictures = ['manali1.jpg', 'manali2.jpg', 'manali3.jpg']; // Manali related pictures
+            }else if (destination === 'ooty') {
+                relatedPictures = ['ooty1.jpg', 'ooty2.jpg', 'ooty3.jpg'];
+            }
+
+            relatedPictures.forEach(function(picture) {
+                var img = document.createElement('img');
+                img.src = picture;
+                img.alt = 'Related Picture';
+                img.style.width = '100%'; // Set width to fill container
+                img.style.height = 'auto'; // Maintain aspect ratio
+                img.style.marginBottom = '10px'; // Add some spacing between images
+                destinationDetails.querySelector('.destination-details').appendChild(img);
+            });
+        }
+    </script>
+</body>
+</html>
